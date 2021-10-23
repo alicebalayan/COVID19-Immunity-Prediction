@@ -1,0 +1,94 @@
+<html>
+
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {
+                'packages': ['geochart'],
+                // keys 
+                'mapsApiKey': ''
+            });
+            google.charts.setOnLoadCallback(drawRegionsMap);
+            var chart;
+
+            function drawRegionsMap() {
+                var data = google.visualization.arrayToDataTable([
+                    ['State', 'Vaccinations'],
+                    ['US-AL', 2283084],
+                    ['US-AK', 496753],
+                    ['US-AR', 4500489],
+                    ['US-AZ', 1695059],
+                    ['US-CA', 26132162],
+                    ['US-CO', 3715642],
+                    ['US-CT', 2720536],
+                    ['US-DE', 644658],
+                    ['US-FL', 13140370],
+                    ['US-GA', 5501345],
+                    ['US-HI', 1008190],
+                    ['US-ID', 962455],
+                    ['US-IL', 8115778],
+                    ['US-IN', 3613972],
+                    ['US-IA', 2065805],
+                    ['US-KS', 1785095],
+                    ['US-KY', 2791409],
+                    ['US-LA', 2431331],
+                    ['US-ME', 994911],
+                    ['US-MD', 4087991],
+                    ['US-MA', 5155389],
+                    ['US-MI', 6203850],
+                    ['US-MN', 3717245],
+                    ['US-MS', 1448995],
+                    ['US-MO', 3420883],
+                    ['US-MT', 658434],
+                    ['US-NE', 1238116],
+                    ['US-NV', 1819344],
+                    ['US-NH', 1068624],
+                    ['US-NJ', 6308263],
+                    ['US-NM', 1589440],
+                    ['US-NY', 13427886],
+                    ['US-NC', 6249789],
+                    ['US-ND', 495734],
+                    ['US-OH', 7239185],
+                    ['US-OK', 2394204],
+                    ['US-OR', 2585604],
+                    ['US-PA', 8520896],
+                    ['US-RI', 765803],
+                    ['US-SC', 2921611],
+                    ['US-SD', 600948],
+                    ['US-TN', 3408568],
+                    ['US-TX', 16232128],
+                    ['US-UT', 1862063],
+                    ['US-VT', 469349],
+                    ['US-VA', 5688606],
+                    ['US-WA', 4944967],
+                    ['US-WV', 1017155],
+                    ['US-WI', 4034800],
+                    ['US-WY', 319377],
+                ]);
+
+                var options = {
+                    region: 'US',
+                    displayMode: 'regions',
+                    resolution: 'provinces',
+                    colors: '#16B2E8',
+                    tooltip: {
+                        trigger: 'both'
+                    }
+
+                };
+                var view = new google.visualization.DataView(data);
+
+                chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                chart.draw(data, options);
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <h2 style="margin-left: 5%;">United States Vaccination Rates Per State</h2>
+        <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    </body>
+
+</html>
