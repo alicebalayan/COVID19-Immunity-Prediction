@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+README.html
+Resources.html
+.vscode/settings.json
